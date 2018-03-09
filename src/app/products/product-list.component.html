@@ -32,7 +32,7 @@
         </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products">
+          <tr *ngFor="let product of products"> <!-- example of 2-way binding-->
             <td>
               <img *ngIf="showImage"
                 [src]="product.imageUrl" <!-- example of property binding-->
