@@ -8,6 +8,7 @@
       <div class="col-md-4">
         <input type="text"
         [(ngModel)]="listFilter"/>
+        <!--The use of the ngModel is an example of 2-way binding-->
       </div>
     </div>
     <div class="row">
@@ -21,8 +22,9 @@
         <tr>
           <th>
             <button class="btn btn-primary"
-            (click)="toggleImage()"> <!-- example of Event binding-->
+            (click)="toggleImage()">
               {{showImage ? 'Hide' : 'Show'}} Image</button>
+            <!--The 'click' section is an example of an event binding-->
           </th>
           <th>Product</th>
           <th>Code</th>
@@ -32,19 +34,21 @@
         </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products"> <!-- example of 2-way binding-->
+          <tr *ngFor="let product of products">
             <td>
               <img *ngIf="showImage"
-                [src]="product.imageUrl" <!-- example of property binding-->
+                [src]="product.imageUrl"
                 [title]="product.productName"
                 [style.width.px]="imageWidth"
                 [style.margin.px]="imageMargin">
+<!--above is an example of property bindings-->
             </td>
-            <td>{{ product.productName}}</td> <!-- example of Interpolation-->
+            <td>{{ product.productName}}</td>
             <td>{{ product.productCode | lowercase}}</td>
             <td>{{ product.releaseDate}}</td>
             <td>{{ product.price | currency:'USD':true:'1.2-2'}}</td>
             <td>{{ product.starRating}}</td>
+            <!--above is an example of interpolation-->
           </tr>
         </tbody>
       </table>
