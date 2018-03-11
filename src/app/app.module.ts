@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 import { NgModule } from '@angular/core';
 
@@ -11,7 +13,7 @@ import {WelcomeComponent} from './home/welcome.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star.component';
 import {ProductService} from './products/product.service';
-import {HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -28,7 +30,14 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: 'products', component: ProductListComponent },
+      {path: 'products/:id', component: ProductListComponent },
+      {path: 'welcome', component: WelcomeComponent },
+      {path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      {path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+    ])
   ],
   providers: [
     ProductService
