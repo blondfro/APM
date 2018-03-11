@@ -8,6 +8,7 @@ import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star.component';
 import {ProductService} from './products/product.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {ProductService} from './products/product.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     ProductService
